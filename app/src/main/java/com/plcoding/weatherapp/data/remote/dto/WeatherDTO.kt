@@ -1,4 +1,4 @@
-package com.plcoding.weatherapp.data.dto
+package com.plcoding.weatherapp.data.remote.dto
 
 
 import com.squareup.moshi.Json

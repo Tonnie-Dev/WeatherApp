@@ -1,5 +1,6 @@
 package com.plcoding.weatherapp.data.remote
 
+import com.plcoding.weatherapp.data.remote.dto.WeatherDTO
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,7 +11,7 @@ interface WeatherAPI {
         @Query("latitude") lat:Double,
         @Query("longitude") long:Double
 
-    ): List<String>
+    ): WeatherDTO
 
     companion object {
 
