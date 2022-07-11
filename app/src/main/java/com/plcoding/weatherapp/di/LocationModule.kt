@@ -1,6 +1,8 @@
 package com.plcoding.weatherapp.di
 
 import android.app.Application
+import com.plcoding.weatherapp.data.location.DefaultLocationTracker
+import com.plcoding.weatherapp.domain.location.LocationTracker
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,5 +15,5 @@ abstract class LocationModule {
 
     @Binds
     @Singleton
-    abstract fun bindLocationTracker()
+    abstract fun bindLocationTracker(defaultLocationTracker: DefaultLocationTracker):LocationTracker
 }
