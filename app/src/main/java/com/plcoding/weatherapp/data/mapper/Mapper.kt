@@ -1,7 +1,9 @@
 package com.plcoding.weatherapp.data.mapper
 
+import com.plcoding.weatherapp.data.remote.dto.WeatherDTO
 import com.plcoding.weatherapp.data.remote.dto.WeatherDataDTO
 import com.plcoding.weatherapp.domain.model.WeatherData
+import com.plcoding.weatherapp.domain.weather.WeatherInfo
 import com.plcoding.weatherapp.domain.weather.WeatherType
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -57,4 +59,21 @@ fun WeatherDataDTO.toWeatherDataMap(): Map<Int, List<WeatherData>> {
 
             }
 
+}
+
+fun WeatherDTO.toWeatherInfo():WeatherInfo{
+
+    val weatherDataMap = this.weatherData.toWeatherDataMap()
+    val now = LocalDateTime.now()
+
+    //[0] is the current day
+    val currentWeatherData = weatherDataMap[0]?.find {
+
+        val hour = if(now.minute < 30) now.hour else now.hour + 1
+        //compare currentWeatherData hour to the above hour variable
+        //and return its weatherDataMap
+        it.time.hour ==hour
+    }
+
+    return WeatherInfo(weatherDataPerDay = weatherDataMap, currentWeatherData = currentWeatherData)
 }
