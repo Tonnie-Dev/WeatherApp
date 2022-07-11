@@ -13,9 +13,9 @@ data class WeatherDataDTO(
     @field:Json(name = "temperature_2m")
     val temperatures: List<Double>,
     @field:Json(name = "time")
-    val time: List<String>,
+    val times: List<String>,
     @field:Json(name = "weathercode")
-    val weatherCodes: List<Double>,
+    val weatherCodes: List<Int>,
     @field:Json(name = "windspeed_10m")
     val windSpeeds: List<Double>
 )
