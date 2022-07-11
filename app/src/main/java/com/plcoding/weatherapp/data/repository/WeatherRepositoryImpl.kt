@@ -7,8 +7,9 @@ import com.plcoding.weatherapp.domain.util.Resource
 import com.plcoding.weatherapp.domain.weather.WeatherInfo
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class WeatherRepositoryImpl (private val api: WeatherAPI):WeatherRepository{
+class WeatherRepositoryImpl @Inject constructor(private val api: WeatherAPI):WeatherRepository{
     override suspend fun getWeatherData(lat: Double, long: Double): Resource<WeatherInfo> {
 
         val result =    try {

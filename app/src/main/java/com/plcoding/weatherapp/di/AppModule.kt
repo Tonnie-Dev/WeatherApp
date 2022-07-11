@@ -1,6 +1,8 @@
 package com.plcoding.weatherapp.di
 
 import com.plcoding.weatherapp.data.remote.WeatherAPI
+import com.plcoding.weatherapp.data.repository.WeatherRepositoryImpl
+import com.plcoding.weatherapp.domain.repository.WeatherRepository
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -29,5 +31,13 @@ object AppModule {
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build()
                 .create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideWeatherRepository(api: WeatherAPI):WeatherRepository{
+
+        return WeatherRepositoryImpl(api)
+
     }
 }
