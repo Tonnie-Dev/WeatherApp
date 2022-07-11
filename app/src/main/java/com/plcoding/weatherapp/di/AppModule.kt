@@ -1,5 +1,8 @@
 package com.plcoding.weatherapp.di
 
+import android.app.Application
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.plcoding.weatherapp.data.remote.WeatherAPI
 import com.plcoding.weatherapp.data.repository.WeatherRepositoryImpl
 import com.plcoding.weatherapp.domain.repository.WeatherRepository
@@ -39,5 +42,13 @@ object AppModule {
 
         return WeatherRepositoryImpl(api)
 
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideFusedLocationProviderClient(application: Application): FusedLocationProviderClient{
+
+        return LocationServices.getFusedLocationProviderClient(application)
     }
 }
