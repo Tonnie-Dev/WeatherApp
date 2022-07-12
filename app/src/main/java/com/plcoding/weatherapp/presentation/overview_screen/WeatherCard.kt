@@ -56,6 +56,14 @@ fun WeatherCard(
 
                 //centered horizontally by default
                 Text(text = "${data.temperatureCelsius}°C", fontSize = 50.sp, color = Color.White)
+                
+                Spacer(modifier = Modifier.height(16.dp))
+                
+                Text(
+                        text = data.weatherType.weatherDesc,
+                        color = Color.White,
+                        fontSize = 20.sp
+                )
             }
         }
     }
