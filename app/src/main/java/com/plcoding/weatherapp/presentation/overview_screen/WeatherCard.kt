@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.plcoding.weatherapp.R
@@ -83,7 +84,8 @@ fun WeatherCard(
                             unit = "hpa",
                             icon = ImageVector.vectorResource(
                                     id = R.drawable.ic_pressure
-                            )
+                            ),
+                            textStyle = TextStyle(color = Color.White)
                     )
 
                     WeatherDataDisplay(
@@ -91,7 +93,8 @@ fun WeatherCard(
                             unit = "%",
                             icon = ImageVector.vectorResource(
                                     id = R.drawable.ic_drop
-                            )
+                            ),
+                            textStyle = TextStyle(color = Color.White)
                     )
 
 
@@ -100,14 +103,14 @@ fun WeatherCard(
                             unit = "km/h",
                             icon = ImageVector.vectorResource(
                                     id = R.drawable.ic_wind
-                            )
+                            ), textStyle = TextStyle(color = Color.White)
                     )
-                  /*  WeatherSmallIcon(
-                            text = "${data.pressure} km/h",
-                            iconRes = R.drawable.ic_pressure
-                    )
-                    WeatherSmallIcon(text = "${data.humidity} %", iconRes = R.drawable.ic_drop)
-                    WeatherSmallIcon(text = "${data.windSpeed} km/h", iconRes = R.drawable.ic_wind)*/
+                    /*  WeatherSmallIcon(
+                              text = "${data.pressure} km/h",
+                              iconRes = R.drawable.ic_pressure
+                      )
+                      WeatherSmallIcon(text = "${data.humidity} %", iconRes = R.drawable.ic_drop)
+                      WeatherSmallIcon(text = "${data.windSpeed} km/h", iconRes = R.drawable.ic_wind)*/
                 }
             }
         }
