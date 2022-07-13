@@ -36,13 +36,7 @@ object AppModule {
                 .create()
     }
 
-    @Provides
-    @Singleton
-    fun provideWeatherRepository(api: WeatherAPI):WeatherRepository{
 
-        return WeatherRepositoryImpl(api)
-
-    }
 
 
     @Provides
