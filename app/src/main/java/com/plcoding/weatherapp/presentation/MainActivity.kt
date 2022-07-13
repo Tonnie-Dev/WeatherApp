@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
 
         permissionLauncher =
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
-                viewModel.
+                viewModel.loadWeatherInfo()
             }
         setContent {
             WeatherAppTheme {
