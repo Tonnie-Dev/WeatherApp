@@ -1,5 +1,6 @@
 package com.plcoding.weatherapp.presentation
 
+import android.Manifest
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,7 +12,7 @@ import com.plcoding.weatherapp.presentation.ui.theme.WeatherAppTheme
 
 class MainActivity : ComponentActivity() {
 
-    val viewModel: WeatherViewModel by viewModels()
+    private val viewModel: WeatherViewModel by viewModels()
     lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,15 @@ class MainActivity : ComponentActivity() {
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
                 viewModel.loadWeatherInfo()
             }
+
+        permissionLauncher.launch(
+                arrayOf(
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                )
+        )
+
+
         setContent {
             WeatherAppTheme {
 
