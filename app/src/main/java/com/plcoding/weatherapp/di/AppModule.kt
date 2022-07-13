@@ -7,6 +7,7 @@ import com.plcoding.weatherapp.data.remote.WeatherAPI
 import com.plcoding.weatherapp.data.repository.WeatherRepositoryImpl
 import com.plcoding.weatherapp.domain.repository.WeatherRepository
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,13 +26,13 @@ object AppModule {
     @Singleton
     fun provideWeatherAPI(): WeatherAPI {
 
-       /* val moshi = Moshi.Builder()
+       val moshi = Moshi.Builder()
                 .addLast(KotlinJsonAdapterFactory())
-                .build()*/
+                .build()
 
         return Retrofit.Builder()
                 .baseUrl(WeatherAPI.BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create())
+                .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .build()
                 .create()
     }
