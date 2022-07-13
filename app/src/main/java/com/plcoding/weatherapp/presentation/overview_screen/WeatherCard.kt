@@ -1,9 +1,9 @@
 package com.plcoding.weatherapp.presentation.overview_screen
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.annotation.DrawableRes
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -11,7 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.plcoding.weatherapp.R
@@ -60,9 +62,9 @@ fun WeatherCard(
 
                 //centered horizontally by default
                 Text(text = "${data.temperatureCelsius}°C", fontSize = 50.sp, color = Color.White)
-                
+
                 Spacer(modifier = Modifier.height(16.dp))
-                
+
                 Text(
                         text = data.weatherType.weatherDesc,
                         color = Color.White,
@@ -70,11 +72,42 @@ fun WeatherCard(
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
-                
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-                    WeatherSmallIcon(text = "${data.pressure} hpa", iconRes = R.drawable.ic_pressure)
+
+                Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+
+                    WeatherDataDisplay(
+                            value = data.pressure.toInt(),
+                            unit = "hpa",
+                            icon = ImageVector.vectorResource(
+                                    id = R.drawable.ic_pressure
+                            )
+                    )
+
+                    WeatherDataDisplay(
+                            value = data.humidity.toInt(),
+                            unit = "%",
+                            icon = ImageVector.vectorResource(
+                                    id = R.drawable.ic_drop
+                            )
+                    )
+
+
+                    WeatherDataDisplay(
+                            value = data.windSpeed.toInt(),
+                            unit = "km/h",
+                            icon = ImageVector.vectorResource(
+                                    id = R.drawable.ic_wind
+                            )
+                    )
+                  /*  WeatherSmallIcon(
+                            text = "${data.pressure} km/h",
+                            iconRes = R.drawable.ic_pressure
+                    )
                     WeatherSmallIcon(text = "${data.humidity} %", iconRes = R.drawable.ic_drop)
-                    WeatherSmallIcon(text = "${data.windSpeed} km/h", iconRes = R.drawable.ic_wind)
+                    WeatherSmallIcon(text = "${data.windSpeed} km/h", iconRes = R.drawable.ic_wind)*/
                 }
             }
         }
@@ -84,10 +117,10 @@ fun WeatherCard(
 }
 
 @Composable
-fun WeatherSmallIcon(text:String, @DrawableRes iconRes:Int ) {
-    
+fun WeatherSmallIcon(text: String, @DrawableRes iconRes: Int) {
+
     Row {
-        Icon(painter = painterResource(id = iconRes), contentDescription =text )
+        Icon(painter = painterResource(id = iconRes), contentDescription = text)
         Spacer(modifier = Modifier.width(2.dp))
         Text(text = text, color = Color.White)
     }
