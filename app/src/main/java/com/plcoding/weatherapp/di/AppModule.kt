@@ -30,11 +30,12 @@ object AppModule {
                 .addLast(KotlinJsonAdapterFactory())
                 .build()
 
+
         return Retrofit.Builder()
                 .baseUrl(WeatherAPI.BASE_URL)
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .build()
-                .create()
+                .create(WeatherAPI::class.java)
     }
 
 
