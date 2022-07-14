@@ -10,7 +10,6 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.Modifier
 import com.plcoding.weatherapp.presentation.overview_screen.WeatherCard
 import com.plcoding.weatherapp.presentation.overview_screen.WeatherViewModel
@@ -39,12 +38,19 @@ class MainActivity : ComponentActivity() {
                 )
         )
 
-
         setContent {
             WeatherAppTheme {
 
-                Column(modifier = Modifier.fillMaxSize().background(DeepBlue)) {
-                    WeatherCard(state = viewModel.state, background = DarkBlue, Modifier.fillMaxSize())
+                Column(
+                        modifier = Modifier
+                                .fillMaxSize()
+                                .background(DeepBlue)
+                ) {
+                    WeatherCard(
+                            state = viewModel.state,
+                            background = DarkBlue,
+                            Modifier.fillMaxSize()
+                    )
                 }
             }
         }
