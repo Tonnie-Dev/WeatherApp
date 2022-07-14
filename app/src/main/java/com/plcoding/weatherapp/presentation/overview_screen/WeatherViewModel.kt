@@ -28,7 +28,8 @@ class WeatherViewModel @Inject constructor(
 
  fun loadWeatherInfo() {
 Timber.i("inside loadWeatherInfo fxn")
-        state = state.copy(isLoading = true)
+        state = state.copy(isLoading = true,
+                error = null)
         viewModelScope.launch {
             Timber.i("inside launch")
 
@@ -40,15 +41,16 @@ Timber.i("inside loadWeatherInfo fxn")
                             is Resource.Success -> {
                                 Timber.i("lat is: ${it.latitude} long is: ${it.longitude}")
                                 Timber.i("ViewModel - Result Success")
-                                state = state.copy(isLoading = false, weatherInfo = result.data)
+                                state = state.copy(isLoading = false,
+                                        weatherInfo = result.data, error = null)
                             }
                             is Resource.Error -> {
 
                                 Timber.i("ViewModel - Result Error")
                                 state = state.copy(
                                         isLoading = false,
-                                        error = result.message,
-                                        weatherInfo = null
+
+                                        weatherInfo = null,error = result.message,
                                 )
 
                             }
