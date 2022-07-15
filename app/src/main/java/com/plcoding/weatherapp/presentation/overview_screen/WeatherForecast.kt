@@ -19,7 +19,7 @@ fun WeatherForecast(state: WeatherState, modifier: Modifier = Modifier) {
     //show column only when we have data available
 
     //pass key 0 to refer to today
-    state.weatherInfo?.weatherDataPerDay?.get(0)
+    state.weatherInfo?.weatherDataPerDay?.get(1)
             ?.let { data ->
 
                 Column(

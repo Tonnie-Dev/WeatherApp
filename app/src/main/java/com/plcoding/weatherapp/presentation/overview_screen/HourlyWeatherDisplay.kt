@@ -17,23 +17,25 @@ fun WeatherForecastItem(
     time: String,
     temp: Double,
     weatherIcon: ImageVector,
-    color: Color = Color.White
+    textColor: Color = Color.LightGray,
+    tint: Color = Color.White
 ) {
 
     Column(
             modifier = modifier.padding(8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(text = time, color = color, fontSize = 20.sp)
-        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = time, color = textColor, fontSize = 16.sp)
+      //  Spacer(modifier = Modifier.height(16.dp))
         Icon(
                 imageVector = weatherIcon,
                 contentDescription = null,
                 modifier = Modifier.size(30.dp),
-                tint = color
+                tint = tint
         )
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(text = temp.toString(), color = color, fontSize = 20.sp)
+      //  Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "${temp}°C", color = tint, fontSize = 16.sp)
 
     }
 }
