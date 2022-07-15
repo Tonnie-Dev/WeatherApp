@@ -23,6 +23,8 @@ fun WeatherForecast(state: WeatherState, modifier: Modifier = Modifier) {
     state.weatherInfo?.weatherDataPerDay?.get(0)
             ?.let { data ->
 
+
+
                 Column(
                         modifier = Modifier
                                 .fillMaxWidth()
