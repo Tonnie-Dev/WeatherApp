@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import com.plcoding.weatherapp.presentation.overview_screen.WeatherCard
+import com.plcoding.weatherapp.presentation.overview_screen.WeatherForecast
 import com.plcoding.weatherapp.presentation.overview_screen.WeatherViewModel
 import com.plcoding.weatherapp.presentation.ui.theme.DarkBlue
 import com.plcoding.weatherapp.presentation.ui.theme.DeepBlue
@@ -51,6 +52,8 @@ class MainActivity : ComponentActivity() {
                             background = DarkBlue,
 
                     )
+                    
+                    WeatherForecast(state = viewModel.state)
                 }
             }
         }
