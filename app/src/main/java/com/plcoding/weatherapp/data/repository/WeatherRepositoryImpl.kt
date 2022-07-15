@@ -35,6 +35,6 @@ Timber.i("Lat is: $lat, Long is: $long")
 
         return result
     }
-
+    //moshi.JsonDataException: Required value  missing at $
 
 }

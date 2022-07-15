@@ -17,7 +17,7 @@ interface WeatherAPI {
     companion object {
 
         const val BASE_URL = "https://api.open-meteo.com/"
-        const val API_KEY = ""
+
     }
 }
 

@@ -64,7 +64,7 @@ dependencies {
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 
     //implementation "com.google.dagger:hilt-android:2.40.5"
-   // kapt "com.google.dagger:hilt-android-compiler:2.40.5"
+    // kapt "com.google.dagger:hilt-android-compiler:2.40.5"
     //Dagger - Hilt
     implementation "com.google.dagger:hilt-android:2.41"
     kapt "com.google.dagger:hilt-android-compiler:2.41"
@@ -75,14 +75,17 @@ dependencies {
     // Location Services
     implementation 'com.google.android.gms:play-services-location:20.0.0'
 
-    // Retrofit
+    // Retrofit, Core Moshi JSON Library and Moshi's Kotlin support and converter factory
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
-    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.7'
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.7"
-//Moshi Library Dependencies - Core Moshi JSON Library and Moshi's Kotlin support and converter factory
     implementation "com.squareup.moshi:moshi:1.12.0"
     implementation "com.squareup.moshi:moshi-kotlin:1.12.0"
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
+
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.7'
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.7"
+
+
 
     //lifecycle
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"

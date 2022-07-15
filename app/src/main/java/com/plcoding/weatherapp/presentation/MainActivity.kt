@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
                     WeatherCard(
                             state = viewModel.state,
                             background = DarkBlue,
-                            Modifier.fillMaxSize()
+
                     )
                 }
             }
