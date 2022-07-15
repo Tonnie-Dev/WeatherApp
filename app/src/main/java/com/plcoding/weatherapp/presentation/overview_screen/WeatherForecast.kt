@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.plcoding.weatherapp.domain.model.WeatherData
 import java.time.format.DateTimeFormatter
 
 @Composable
@@ -19,7 +20,7 @@ fun WeatherForecast(state: WeatherState, modifier: Modifier = Modifier) {
     //show column only when we have data available
 
     //pass key 0 to refer to today
-    state.weatherInfo?.weatherDataPerDay?.get(1)
+    state.weatherInfo?.weatherDataPerDay?.get(0)
             ?.let { data ->
 
                 Column(
@@ -34,15 +35,11 @@ fun WeatherForecast(state: WeatherState, modifier: Modifier = Modifier) {
                     LazyRow {
 
                         items(data) { item ->
-
-                            WeatherForecastItem(
-                                    time = item.time.format(
-                                            DateTimeFormatter.ofPattern(
-                                                    "HH:mm"
-                                            )
-                                    ),
-                                    temp = item.temperatureCelsius,
-                                    weatherIcon = ImageVector.vectorResource(id = item.weatherType.iconRes)
+                            HourlyWeatherDisplay(
+                                    weatherData = item,
+                                    modifier = Modifier
+                                            .height(100.dp)
+                                            .padding(horizontal = 16.dp)
                             )
 
 

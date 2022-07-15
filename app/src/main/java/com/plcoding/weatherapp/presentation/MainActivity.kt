@@ -9,8 +9,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.plcoding.weatherapp.presentation.overview_screen.WeatherCard
 import com.plcoding.weatherapp.presentation.overview_screen.WeatherForecast
 import com.plcoding.weatherapp.presentation.overview_screen.WeatherViewModel
@@ -52,7 +55,7 @@ class MainActivity : ComponentActivity() {
                             background = DarkBlue,
 
                     )
-                    
+                    Spacer(modifier = Modifier.height(16.dp))
                     WeatherForecast(state = viewModel.state)
                 }
             }
